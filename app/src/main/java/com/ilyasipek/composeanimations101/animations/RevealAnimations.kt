@@ -314,6 +314,7 @@ private fun RevealBoxAnimationPreview() {
         columns = GridCells.Fixed(2),
         contentPadding = PaddingValues(16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
+        modifier = Modifier.padding(top = 56.dp)
     ) {
         item {
             ExpandShrinkRevealRevealAnimation(
