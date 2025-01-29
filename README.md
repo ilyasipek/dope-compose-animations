@@ -14,3 +14,11 @@ https://github.com/user-attachments/assets/a1a1c104-144d-4552-be1a-a4c102bed7a5
 
 https://github.com/user-attachments/assets/67e63076-5cdc-4670-9a3d-d95729b259e2
 
+
+## Contribution guide
+Feel free to contribute by:
+
+1. Adding a Dope Component or Modifier animation 💫
+2. Improving the existing code readability or performance 🔥
+3. Adding an alternative approach to the same Components/Modifiers 🎊
+4. Suggest a Dope animation 💡
