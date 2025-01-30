@@ -89,7 +89,7 @@ private fun CopyIcon(
 
     Surface(
         modifier
-            .padding(start = 16.dp)
+            .padding(start = 8.dp)
             .clickable(
                 enabled = !showCopied,
                 rippleEnabled = false
