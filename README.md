@@ -14,6 +14,9 @@ https://github.com/user-attachments/assets/a1a1c104-144d-4552-be1a-a4c102bed7a5
 
 https://github.com/user-attachments/assets/67e63076-5cdc-4670-9a3d-d95729b259e2
 
+#### WormToggleAnimation [Code](https://github.com/ilyasipek/DopeComposeAnimations/blob/main/app/src/main/java/com/ilyasipek/composeanimations101/animations/WormToggleAnimation.kt)
+
+https://github.com/user-attachments/assets/40cdeaa8-897c-46d2-bf57-a650aedf2368
 
 ## Contribution guide
 Feel free to contribute by:
