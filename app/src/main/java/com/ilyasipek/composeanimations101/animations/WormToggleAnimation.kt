@@ -39,6 +39,7 @@ private val indicatorSize = 24.dp
 private val horizontalPadding = 4.dp
 private const val DELAY_BETWEEN_HEAD_AND_TAIL_ANIMATION = 150L
 
+// TODO: Convert this animation to Modifier Node API with measure node like Switch api imp
 @Composable
 fun WormToggleAnimation(
     checked: Boolean,
