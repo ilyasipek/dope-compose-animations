@@ -14,7 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.VolumeUp
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -112,13 +112,13 @@ fun StretchyVerticalVolumeSlider(
                     }
                     .width(100.dp)
                     .fillMaxHeight()
-                    .clip(RoundedCornerShape(32.dp))
+                    .clip(CircleShape)
                     .background(Color(0xff262A33)),
                 contentAlignment = Alignment.BottomCenter
             ) {
                 Box(
                     modifier = Modifier
-                        .background(Brush.verticalGradient(colors = listOf(Color.Gray, Color.LightGray)))
+                        .background(Brush.verticalGradient(colors = listOf(Color(0xff7F5EE5), Color(0xffC872EB))))
                         .fillMaxWidth()
                         .fillMaxHeight(sliderNormalizedValue.value)
                 )
@@ -126,6 +126,7 @@ fun StretchyVerticalVolumeSlider(
                 Icon(
                     imageVector = Icons.AutoMirrored.Rounded.VolumeUp,
                     contentDescription = null,
+                    tint = Color.White,
                     modifier = Modifier
                         .align(Alignment.BottomCenter)
                         .padding(bottom = 16.dp)
