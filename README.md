@@ -4,6 +4,11 @@
 
 https://github.com/user-attachments/assets/c862255d-599d-4af8-9d0b-665adf575d37
 
+#### StretchyVerticalVolumeSlider [Code](https://github.com/ilyasipek/DopeComposeAnimations/blob/main/app/src/main/java/com/ilyasipek/composeanimations101/animations/StretchyVerticalVolumeSlider.kt)
+
+
+https://github.com/user-attachments/assets/be3f57f0-2cfb-43e3-b00f-b1f22fd3ca76
+
 
 #### RoundedRectDeterminateIndicator [Code](https://github.com/ilyasipek/DopeComposeAnimations/blob/main/app/src/main/java/com/ilyasipek/composeanimations101/animations/RoundedRectBorderProgress.kt)
 
