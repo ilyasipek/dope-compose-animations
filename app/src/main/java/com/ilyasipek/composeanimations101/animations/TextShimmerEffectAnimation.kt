@@ -39,7 +39,8 @@ fun TextShimmerEffectAnimation(
         animationSpec = infiniteRepeatable(
             animation = tween(2000),
             repeatMode = RepeatMode.Restart
-        ), label = ""
+        ),
+        label = "AnimationProgress"
     )
 
     val brush = remember(animationProgress) {
