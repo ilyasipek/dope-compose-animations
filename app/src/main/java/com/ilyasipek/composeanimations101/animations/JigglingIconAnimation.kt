@@ -142,7 +142,7 @@ private fun JiggleIconPreview() {
 
 @Preview
 @Composable
-private fun JiggleIconGridSample() {
+fun JiggleIconGridSample() {
     ComposeAnimations101Theme {
         var isInSelectionMode by remember {
             mutableStateOf(false)
