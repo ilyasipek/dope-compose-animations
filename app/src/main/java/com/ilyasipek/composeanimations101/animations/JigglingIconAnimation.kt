@@ -1,6 +1,5 @@
 package com.ilyasipek.composeanimations101.animations
 
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.EaseInOutQuad
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -13,6 +12,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,6 +26,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Remove
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -40,20 +41,24 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.ilyasipek.composeanimations101.ui.theme.ComposeAnimations101Theme
 import com.ilyasipek.composeanimations101.utils.DataProviderUtil
 
 // you can add more transform-origins to make the animation even more random
 private val transformOrigins = listOf(
     TransformOrigin(0.2f, 0.05f),
-    TransformOrigin(0.4f, 0.10f),
-    TransformOrigin(0.6f, 0.10f),
+    TransformOrigin(0.5f, 0.10f),
+    TransformOrigin(0.5f, 0.5f),
+    TransformOrigin(0.3f, 0.7f),
     TransformOrigin(0.9f, 0.07f),
 )
 
+private const val BASE_ROTATION_DEGREE = .3f
+
 /**
  * Basically, we're rotating the item between
- * -0.5f - random-extra to 0.5f + random-extra sometimes more toward the right sometimes toward the left
+ * -[BASE_ROTATION_DEGREE]- random-extra to [BASE_ROTATION_DEGREE]+ random-extra sometimes more toward the right sometimes toward the left
  * based on a random boolean (isMoreJigglingOnRight)
  *
  * Also, we're changing the transformOrigins to make it look like it's anchored from the top-corners or top-center
@@ -76,56 +81,68 @@ fun JigglingIconAnimation(
 
     val infiniteTransition = rememberInfiniteTransition(label = "")
     val animatedDegree by infiniteTransition.animateFloat(
-        initialValue = -0.5f - if (isMoreJigglingOnRight) randomExtra / 2f else randomExtra,
-        targetValue = 0.5f + if (isMoreJigglingOnRight) randomExtra else randomExtra / 2f,
+        initialValue = -BASE_ROTATION_DEGREE - if (isMoreJigglingOnRight) randomExtra / 2f else randomExtra,
+        targetValue = BASE_ROTATION_DEGREE + if (isMoreJigglingOnRight) randomExtra else randomExtra / 2f,
         animationSpec = infiniteRepeatable(
             tween(
-                100,
+                durationMillis = 120,
                 easing = EaseInOutQuad
             ),
             repeatMode = RepeatMode.Reverse,
         ), label = "AnimatedDegree"
     )
-    val transformOrigin = remember { transformOrigins.random() }
+
+    val transformOrigin = remember {
+        transformOrigins.random()
+    }
     val colors = remember { DataProviderUtil.colors.random() }
 
-    Box(
-        modifier = modifier
-            .then(
-                if (inSelectionMode) Modifier.graphicsLayer {
-                    this.rotationZ = animatedDegree
-                    this.transformOrigin = transformOrigin
-                } else Modifier
-            )
-            .background(colors, RoundedCornerShape(16.dp)),
-        contentAlignment = Alignment.Center
+
+
+    Column(
+        Modifier.then(
+            if (inSelectionMode) Modifier.graphicsLayer {
+                this.rotationZ = animatedDegree
+                this.transformOrigin = transformOrigin
+            } else Modifier
+        ),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        AnimatedVisibility(
-            inSelectionMode,
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .offset(x = (-3).dp, (-3).dp),
-            enter = scaleIn(),
-            exit = scaleOut()
+        Box(
+            modifier = modifier
+                .background(colors, RoundedCornerShape(16.dp)),
+            contentAlignment = Alignment.Center
         ) {
-            Icon(
-                imageVector = Icons.Rounded.Remove,
-                contentDescription = "Jiggling Icon",
-                tint = Color.White,
+            androidx.compose.animation.AnimatedVisibility(
+                inSelectionMode,
                 modifier = Modifier
-                    .background(Color.Gray, CircleShape)
-                    .padding(2.dp)
-                    .size(12.dp)
+                    .align(Alignment.TopStart)
+                    .offset(x = (-3).dp, (-3).dp),
+                enter = scaleIn(),
+                exit = scaleOut()
+            ) {
+                Icon(
+                    imageVector = Icons.Rounded.Remove,
+                    contentDescription = "Jiggling Icon",
+                    tint = Color.White,
+                    modifier = Modifier
+                        .background(Color.Gray, CircleShape)
+                        .padding(2.dp)
+                        .size(12.dp)
+                )
+            }
+            Icon(
+                imageVector = icon,
+                contentDescription = "Jiggling Icon",
+                modifier = Modifier
+                    .padding(16.dp)
+                    .fillMaxSize()
             )
         }
-        Icon(
-            imageVector = icon,
-            contentDescription = "Jiggling Icon",
-            modifier = Modifier
-                .padding(16.dp)
-                .fillMaxSize()
-        )
+
+        Text("Dope", fontSize = 12.sp)
     }
+
 }
 
 @Preview
@@ -149,9 +166,9 @@ fun JiggleIconGridSample() {
         }
         LazyVerticalGrid(
             columns = GridCells.Fixed(4),
-            contentPadding = PaddingValues(16.dp),
+            contentPadding = PaddingValues(24.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
-            horizontalArrangement = Arrangement.spacedBy(20.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp),
         ) {
             repeat(21) {
                 item {
