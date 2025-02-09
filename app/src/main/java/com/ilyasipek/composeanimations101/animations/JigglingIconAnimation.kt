@@ -97,8 +97,6 @@ fun JigglingIconAnimation(
     }
     val colors = remember { DataProviderUtil.colors.random() }
 
-
-
     Column(
         Modifier.then(
             if (inSelectionMode) Modifier.graphicsLayer {
@@ -142,7 +140,6 @@ fun JigglingIconAnimation(
 
         Text("Dope", fontSize = 12.sp)
     }
-
 }
 
 @Preview
@@ -159,7 +156,9 @@ private fun JiggleIconPreview() {
 
 @Preview
 @Composable
-fun JiggleIconGridSample() {
+fun JiggleIconGridSample(
+    modifier: Modifier = Modifier,
+) {
     ComposeAnimations101Theme {
         var isInSelectionMode by remember {
             mutableStateOf(false)
@@ -169,6 +168,7 @@ fun JiggleIconGridSample() {
             contentPadding = PaddingValues(24.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalArrangement = Arrangement.spacedBy(24.dp),
+            modifier = modifier
         ) {
             repeat(21) {
                 item {
