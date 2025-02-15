@@ -32,6 +32,9 @@ import com.ilyasipek.composeanimations101.ui.theme.ComposeAnimations101Theme
 import com.ilyasipek.composeanimations101.utils.clickable
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.unit.LayoutDirection
+
 
 private val toggleWidth = 52.dp
 private val toggleHeight = 32.dp
@@ -47,6 +50,8 @@ fun WormToggleAnimation(
     modifier: Modifier = Modifier,
     colors: SwitchColors = SwitchDefaults.colors()
 ) {
+    val layoutDirection = LocalLayoutDirection.current
+
     val headXPosAnimation = remember {
         Animatable(getHeadXPos(checked), Dp.VectorConverter)
     }
@@ -94,9 +99,18 @@ fun WormToggleAnimation(
                 .padding(horizontalPadding)
                 .requiredSize(indicatorSize)
                 .drawBehind {
+               // Adjust coordinates for RTL:
+                    val (adjustedTail, adjustedHead) = if (layoutDirection == LayoutDirection.Rtl) {
+                        // In RTL, flip the coordinates.
+                        val adjustedTail = size.width - headXPosAnimation.value.toPx()
+                        val adjustedHead = size.width - tailXPosAnimation.value.toPx()
+                        adjustedTail to adjustedHead
+                    } else {
+                        tailXPosAnimation.value.toPx() to headXPosAnimation.value.toPx()
+                    }
                     drawWormIndicator(
-                        tailXPos = tailXPosAnimation.value.toPx(),
-                        headXPos = headXPosAnimation.value.toPx(),
+                        tailXPos = adjustedTail,
+                        headXPos = adjustedHead,
                         color = if (checked) colors.checkedThumbColor else colors.uncheckedThumbColor
                     )
                 }
