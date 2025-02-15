@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ilyasipek.composeanimations101.samples.JigglingIconsSampleScreen
 import com.ilyasipek.composeanimations101.samples.SampleToolbar
 import com.ilyasipek.composeanimations101.samples.ScrambleTextAnimationSampleScreen
 import com.ilyasipek.composeanimations101.samples.ShakeModifierSampleScreen
@@ -68,6 +69,14 @@ fun MainContent(
                 text = "Scramble Text",
                 onClick = {
                     onNavigateTo(ScrambleTextAnimationSampleScreen)
+                }
+            )
+        }
+        item {
+            SampleItem(
+                text = "Jiggling Icons",
+                onClick = {
+                    onNavigateTo(JigglingIconsSampleScreen)
                 }
             )
         }

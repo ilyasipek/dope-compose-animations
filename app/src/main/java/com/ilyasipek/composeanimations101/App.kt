@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.ilyasipek.composeanimations101.samples.JigglingIconsSampleScreen
 import com.ilyasipek.composeanimations101.samples.ScrambleTextAnimationSampleScreen
 import com.ilyasipek.composeanimations101.samples.ShakeModifierSampleScreen
 
@@ -23,6 +24,9 @@ fun App() {
         }
         composable<ScrambleTextAnimationSampleScreen> {
             ScrambleTextAnimationSampleScreen(onBackClick = { navController.popBackStack() })
+        }
+        composable<JigglingIconsSampleScreen> {
+            JigglingIconsSampleScreen(onBackClick = { navController.popBackStack() })
         }
     }
 }
