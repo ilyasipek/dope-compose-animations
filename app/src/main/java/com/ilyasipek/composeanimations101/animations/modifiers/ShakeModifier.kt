@@ -33,6 +33,9 @@ class ShakeController(
     }
 }
 
+/**
+ * Check the ShakeModifierSampleScreen for a practical example
+ * */
 fun Modifier.shake(shakeController: ShakeController): Modifier {
     val shakeConfig = shakeController.shakeConfig
     val shakeFraction = shakeController.shakeFraction

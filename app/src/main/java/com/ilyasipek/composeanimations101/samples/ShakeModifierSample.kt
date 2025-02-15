@@ -1,14 +1,17 @@
 package com.ilyasipek.composeanimations101.samples
 
 import android.widget.Toast
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -27,6 +30,32 @@ import com.ilyasipek.composeanimations101.animations.modifiers.rememberShakeCont
 import com.ilyasipek.composeanimations101.animations.modifiers.shake
 import com.ilyasipek.composeanimations101.ui.theme.ComposeAnimations101Theme
 import kotlinx.coroutines.launch
+import kotlinx.serialization.Serializable
+
+@Serializable
+object ShakeModifierSampleScreen
+
+@Composable
+fun ShakeModifierSampleScreen(
+    onBackClick: () -> Unit,
+) {
+    Scaffold(
+        topBar = {
+            SampleToolbar(
+                title = "Shake Modifier",
+                onBackClick = onBackClick
+            )
+        }) {
+        Box(
+            modifier = Modifier
+                .padding(it)
+                .fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            ShakeModifierSample()
+        }
+    }
+}
 
 @Composable
 fun ShakeModifierSample(

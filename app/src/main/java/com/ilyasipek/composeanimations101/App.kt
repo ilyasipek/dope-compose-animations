@@ -1,16 +1,10 @@
 package com.ilyasipek.composeanimations101
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import kotlinx.serialization.Serializable
-
-@Serializable
-object ScrambleSampleScreen
+import com.ilyasipek.composeanimations101.samples.ShakeModifierSampleScreen
 
 @Composable
 fun App() {
@@ -23,10 +17,8 @@ fun App() {
                 }
             )
         }
-        composable<ScrambleSampleScreen> {
-            Box(modifier = Modifier) {
-                Text("scramble")
-            }
+        composable<ShakeModifierSampleScreen> {
+            ShakeModifierSampleScreen(onBackClick = { navController.popBackStack() })
         }
     }
 }

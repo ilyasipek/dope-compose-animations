@@ -16,13 +16,14 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ilyasipek.composeanimations101.samples.SampleToolbar
+import com.ilyasipek.composeanimations101.samples.ShakeModifierSampleScreen
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -55,15 +56,13 @@ fun MainContent(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        repeat(2) {
-            item {
-                SampleItem(
-                    text = "slakfjlskdjf",
-                    onClick = {
-                        onNavigateTo(ScrambleSampleScreen)
-                    }
-                )
-            }
+        item {
+            SampleItem(
+                text = "Shake Animation",
+                onClick = {
+                    onNavigateTo(ShakeModifierSampleScreen)
+                }
+            )
         }
         item(span = { GridItemSpan(2) }) {
             Column {
