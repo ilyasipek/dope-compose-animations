@@ -33,11 +33,7 @@ object MainScreen
 fun MainScreen(modifier: Modifier = Modifier, onNavigateTo: (Any) -> Unit) {
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    Text("Dope Animations")
-                }
-            )
+            SampleToolbar(title = "Dope Animations")
         }
     ) {
         MainContent(
