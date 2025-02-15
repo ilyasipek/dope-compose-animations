@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
@@ -23,13 +22,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ilyasipek.composeanimations101.samples.SampleToolbar
+import com.ilyasipek.composeanimations101.samples.ScrambleTextAnimationSampleScreen
 import com.ilyasipek.composeanimations101.samples.ShakeModifierSampleScreen
 import kotlinx.serialization.Serializable
 
 @Serializable
 object MainScreen
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(modifier: Modifier = Modifier, onNavigateTo: (Any) -> Unit) {
     Scaffold(
@@ -61,6 +60,14 @@ fun MainContent(
                 text = "Shake Animation",
                 onClick = {
                     onNavigateTo(ShakeModifierSampleScreen)
+                }
+            )
+        }
+        item {
+            SampleItem(
+                text = "Scramble Text",
+                onClick = {
+                    onNavigateTo(ScrambleTextAnimationSampleScreen)
                 }
             )
         }
