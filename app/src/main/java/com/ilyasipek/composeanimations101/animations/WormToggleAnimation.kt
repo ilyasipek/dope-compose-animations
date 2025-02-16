@@ -35,7 +35,6 @@ import kotlinx.coroutines.launch
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.LayoutDirection
 
-
 private val toggleWidth = 52.dp
 private val toggleHeight = 32.dp
 private val indicatorSize = 24.dp
@@ -99,7 +98,7 @@ fun WormToggleAnimation(
                 .padding(horizontalPadding)
                 .requiredSize(indicatorSize)
                 .drawBehind {
-               // Adjust coordinates for RTL:
+                    // Adjust coordinates for RTL:
                     val (adjustedTail, adjustedHead) = if (layoutDirection == LayoutDirection.Rtl) {
                         // In RTL, flip the coordinates.
                         val adjustedTail = size.width - headXPosAnimation.value.toPx()
