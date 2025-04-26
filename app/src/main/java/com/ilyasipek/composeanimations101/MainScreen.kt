@@ -25,6 +25,7 @@ import com.ilyasipek.composeanimations101.samples.JigglingIconsSampleScreen
 import com.ilyasipek.composeanimations101.samples.SampleToolbar
 import com.ilyasipek.composeanimations101.samples.ScrambleTextAnimationSampleScreen
 import com.ilyasipek.composeanimations101.samples.ShakeModifierSampleScreen
+import com.ilyasipek.composeanimations101.samples.WavingCircleSampleScreen
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -38,7 +39,7 @@ fun MainScreen(modifier: Modifier = Modifier, onNavigateTo: (Any) -> Unit) {
         }
     ) {
         MainContent(
-            modifier = Modifier.padding(it),
+            modifier = modifier.padding(it),
             onNavigateTo = onNavigateTo
         )
     }
@@ -77,6 +78,14 @@ fun MainContent(
                 text = "Jiggling Icons",
                 onClick = {
                     onNavigateTo(JigglingIconsSampleScreen)
+                }
+            )
+        }
+        item {
+            SampleItem(
+                text = "Waving Circle",
+                onClick = {
+                    onNavigateTo(WavingCircleSampleScreen)
                 }
             )
         }
