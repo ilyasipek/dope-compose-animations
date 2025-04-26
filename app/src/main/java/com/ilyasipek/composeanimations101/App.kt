@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import com.ilyasipek.composeanimations101.samples.JigglingIconsSampleScreen
 import com.ilyasipek.composeanimations101.samples.ScrambleTextAnimationSampleScreen
 import com.ilyasipek.composeanimations101.samples.ShakeModifierSampleScreen
+import com.ilyasipek.composeanimations101.samples.WavingCircleSampleScreen
 
 @Composable
 fun App() {
@@ -27,6 +28,9 @@ fun App() {
         }
         composable<JigglingIconsSampleScreen> {
             JigglingIconsSampleScreen(onBackClick = { navController.popBackStack() })
+        }
+        composable<WavingCircleSampleScreen> {
+            WavingCircleSampleScreen(onBackClick = { navController.popBackStack() })
         }
     }
 }
