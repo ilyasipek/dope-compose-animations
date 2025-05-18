@@ -141,7 +141,9 @@ private fun CopyIcon(
 private fun InlineCopiedAnimationPreview() {
     ComposeAnimations101Theme {
         InlineCopiedAnimation(
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier
+                .padding(16.dp)
+                .padding(top = 56.dp)
         )
     }
 }
