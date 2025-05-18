@@ -26,6 +26,7 @@ import com.ilyasipek.composeanimations101.samples.SampleToolbar
 import com.ilyasipek.composeanimations101.samples.ScrambleTextAnimationSampleScreen
 import com.ilyasipek.composeanimations101.samples.ShakeModifierSampleScreen
 import com.ilyasipek.composeanimations101.samples.WavingCircleSampleScreen
+import com.ilyasipek.composeanimations101.samples.m3expressive.M3ExpressivePlaygroundSampleScreen
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -89,6 +90,14 @@ fun MainContent(
                 }
             )
         }
+        item {
+            SampleItem(
+                text = "Expressive M3 \n Playground",
+                onClick = {
+                    onNavigateTo(M3ExpressivePlaygroundSampleScreen)
+                }
+            )
+        }
         item(span = { GridItemSpan(2) }) {
             Column {
                 HorizontalDivider(modifier = Modifier.fillMaxWidth())
@@ -106,7 +115,7 @@ fun MainContent(
 }
 
 @Composable
-private fun SampleItem(text: String, onClick: () -> Unit) {
+fun SampleItem(text: String, onClick: () -> Unit) {
     OutlinedCard(
         onClick = onClick,
         modifier = Modifier.height(120.dp)
@@ -117,7 +126,7 @@ private fun SampleItem(text: String, onClick: () -> Unit) {
                 .padding(16.dp),
             contentAlignment = Alignment.Center
         ) {
-            Text(text)
+            Text(text, textAlign = TextAlign.Center)
         }
     }
 }
