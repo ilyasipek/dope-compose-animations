@@ -38,6 +38,19 @@ https://github.com/user-attachments/assets/67e63076-5cdc-4670-9a3d-d95729b259e2
 
 https://github.com/user-attachments/assets/40cdeaa8-897c-46d2-bf57-a650aedf2368
 
+
+#### M3 Expressive Button Group Sample [Code](https://github.com/ilyasipek/dope-compose-animations/blob/main/app/src/main/java/com/ilyasipek/composeanimations101/samples/m3expressive/M3ExpressiveButtonGroupSampleScreen.kt)
+
+https://github.com/user-attachments/assets/13d68a80-4fc3-4eed-89c5-e65011dc2cc9
+
+#### M3 Expressive Pull To Refresh Sample [Code](https://github.com/ilyasipek/dope-compose-animations/blob/main/app/src/main/java/com/ilyasipek/composeanimations101/samples/m3expressive/M3EPullToRefreshSampleScreen.kt)
+
+
+https://github.com/user-attachments/assets/e74f899a-8376-466d-8f99-8d0276158ad8
+
+
+
+
 ## Contribution guide
 Feel free to contribute by:
 
